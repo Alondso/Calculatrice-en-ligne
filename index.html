@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <div class="main_query">
+        <h1>Math.Dev.App</h1>
+        <label>Simple Calculatrice @Alondso</label>
+        <input type="text" class="query" placeholder="Ex: 2 + 3">
+        <button>calculer</button>
+    </div>
+    <input type="text" class="response" readonly>
+</body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: black;
+        color: #fff;
+    }
+
+    .main_query {
+        display: flex;
+        flex-direction: column;
+        width: 410px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    label {
+        margin: 10px 0;
+        font-size: 19px;
+    }
+
+    input ,button {
+        margin: 10px 0;
+        padding: 15px;
+        font-size: 18px;
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid #fff;
+        outline: 0;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    button {
+        background-color: #fff;
+        color: #000;
+        cursor: pointer;
+    }
+
+    ::placeholder {
+        color: #999;
+    }
+
+    .response {
+        width: 410px;
+        display: none;
+    }
+
+    @media screen and (max-width: 400px){
+        .main_query {
+         width: 310px;
+        }
+
+        .response {
+            width: 310px;
+        }
+    }
+</style>
+
+
+<script>
+    let query = document.querySelector('.query');
+    let btn = document.querySelector('button');
+    let response = document.querySelector('.response');
+
+    btn.onclick = function(){
+        if(query.value.length > 0){
+            response.value = "Resultat : " + eval (query.value);
+            response.style.display = "block";
+        }else {
+            alert("Champ Vide!");
+            response.style.display = "none";
+        }
+    }
+</script>
